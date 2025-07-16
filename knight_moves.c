@@ -74,7 +74,7 @@ int knight_moves(int start_x, int start_y, int end_x, int end_y)
 
     int result = 0;
 
-    while (x < 20)
+    while (1)
     {
         // return the result if the knight is within a 1 square boundry from the end
         if (end_x - x == 0 && end_y - y == 0)
@@ -126,8 +126,6 @@ int knight_moves(int start_x, int start_y, int end_x, int end_y)
         // increment moves
         result++;
     }
-
-    return 0;
 }
 
 int main()
