@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 struct Line
 {
@@ -77,15 +78,15 @@ int knight_moves(int start_x, int start_y, int end_x, int end_y)
     while (1)
     {
         // return the result if the knight is within a 1 square boundry from the end
-        if (end_x - x == 0 && end_y - y == 0)
+        if (abs(end_x - x) == 0 && abs(end_y) - y == 0)
         {
             return result;
         }
-        else if (end_x - x == 1 && end_y - y == 0 || end_y - y == 1 && end_x - x == 0)
+        else if (abs(end_x - x) == 1 && abs(end_y - y) == 0 || abs(end_y - y) == 1 && abs(end_x - x) == 0)
         {
             return result + 3;
         }
-        else if (end_x - x == 1 && end_y - y == 1)
+        else if (abs(end_x - x) == 1 && abs(end_y - y) == 1)
         {
             return result + 2;
         }
@@ -138,6 +139,12 @@ int main()
     printf("%d\n", result);
 
     result = knight_moves(1, 1, 8, 8);
+    printf("%d\n", result);
+
+    result = knight_moves(1, 1, 65535, 65535);
+    printf("%d\n", result);
+
+    result = knight_moves(8, 8, 1, 1);
     printf("%d\n", result);
     return 0;
 }
