@@ -34,11 +34,11 @@ enum Quadrant calculate_quadrant(int start_x, int start_y, int end_x, int end_y)
     enum Quadrant quadrant = 0;
     if (start_x > end_x)
     {
-        quadrant = quadrant & 0b01;
+        quadrant = quadrant | 0b01;
     }
     if (start_y > end_y)
     {
-        quadrant = quadrant & 0b10;
+        quadrant = quadrant | 0b10;
     }
 
     return quadrant;
