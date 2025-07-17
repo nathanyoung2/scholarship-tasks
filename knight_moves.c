@@ -66,7 +66,7 @@ void quadrant_multiply(enum Quadrant quadrant, int *dx, int *dy)
 
 int knight_moves(int start_x, int start_y, int end_x, int end_y)
 {
-    enum Quadrant quadrant = calculate_quadrant(start_x, start_y, end_x, end_y);
+    enum Quadrant quadrant;
     int x = start_x;
     int y = start_y;
 
@@ -90,6 +90,9 @@ int knight_moves(int start_x, int start_y, int end_x, int end_y)
         {
             return result + 2;
         }
+
+        // get the quadrant the goal is in from current location
+        quadrant = calculate_quadrant(x, y, end_x, end_y);
 
         // create lines
         rise = 1;
